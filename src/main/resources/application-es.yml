@@ -1,0 +1,45 @@
+---
+spring:
+  profiles: dev,test
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9200
+      properties:
+        connectTimeout: 1000
+        socketTimeout: 10000
+#        userName:
+#        password:
+
+---
+spring:
+  profiles: rc
+  data:
+    elasticsearch:
+      cluster-nodes: 172.16.173.8:9200, 172.16.173.9:9200
+      properties:
+        connectTimeout: 1000
+        socketTimeout: 10000
+        userName: damp_admin
+        password: 123456
+
+---
+spring:
+  profiles: prod
+  data:
+    elasticsearch:
+      cluster-nodes: 18.10.32.50:9200,18.10.32.51:9200,18.10.32.52:9200
+      properties:
+        connectTimeout: 1000
+        socketTimeout: 10000
+        userName: damp_sa
+        password: Damp@2019
+
+---
+spring:
+  profiles: local
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9200
+      properties:
+        connectTimeout: 1000
+        socketTimeout: 10000
